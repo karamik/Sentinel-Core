@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel Core | Hardware‑Immutable Security</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #01020f;
+            font-family: 'Inter', sans-serif;
+            color: #eef5ff;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .bg-cosmic {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, #030c1a, #000000);
+            z-index: -2;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(2px 2px at 20px 40px, #ffffff, rgba(0,0,0,0)),
+                              radial-gradient(1px 1px at 80px 240px, #ffe6b0, rgba(0,0,0,0));
+            background-size: 200px 200px, 300px 300px;
+            background-repeat: repeat;
+            opacity: 0.25;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem 2rem 4rem;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(0, 180, 255, 0.12);
+            border-left: 3px solid #0cf;
+            padding: 0.3rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            color: #8acdff;
+        }
+
+        h1 {
+            font-size: clamp(2.8rem, 7vw, 4.5rem);
+            font-weight: 800;
+            background: linear-gradient(125deg, #ffffff, #4db8ff, #0080ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            color: #bbddff;
+            margin: 1rem 0;
+            font-weight: 400;
+        }
+
+        .tagline {
+            font-size: 1rem;
+            color: #7f9fcf;
+            margin-top: 1rem;
+            border-left: 2px solid #2a8eff;
+            padding-left: 1rem;
+        }
+
+        /* Grid Cards */
+        .section {
+            padding: 5rem 0;
+            border-bottom: 1px solid rgba(30, 100, 160, 0.25);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .section-desc {
+            color: #bcd4ff;
+            max-width: 700px;
+            margin-bottom: 3rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .tech-card {
+            background: rgba(8, 20, 35, 0.65);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            padding: 2rem;
+            border: 1px solid rgba(0, 150, 255, 0.25);
+            transition: 0.2s;
+        }
+
+        .tech-card:hover {
+            border-color: #2f9eff;
+            transform: translateY(-4px);
+        }
+
+        .card-icon {
+            font-size: 2.2rem;
+            color: #2aa0ff;
+            margin-bottom: 1rem;
+        }
+
+        .tech-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .tech-card p {
+            color: #cae0ff;
+            font-size: 0.95rem;
+        }
+
+        /* Comparison Table */
+        .comp-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0, 10, 25, 0.6);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+
+        .comp-table th, .comp-table td {
+            padding: 1rem 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid #1f3c60;
+        }
+
+        .comp-table th {
+            background: #0a1c32;
+            font-weight: 600;
+            color: #9acdff;
+        }
+
+        .check {
+            color: #0cf;
+            font-weight: bold;
+        }
+
+        /* Product Cards */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .product-card {
+            background: rgba(8, 20, 35, 0.7);
+            border-radius: 1.5rem;
+            padding: 1.8rem;
+            border: 1px solid #1f4a72;
+            transition: 0.2s;
+        }
+
+        .product-card:hover {
+            border-color: #0cf;
+        }
+
+        .product-price {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0cf;
+            margin: 1rem 0;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            border: 1px solid #0cf;
+            background: transparent;
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
+            color: #0cf;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: rgba(0, 180, 255, 0.1);
+            transform: scale(1.02);
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, #051a30, #010a18);
+            border-radius: 2rem;
+            margin: 3rem 0;
+            border: 1px solid #2f6e9e;
+        }
+
+        .btn-primary {
+            background: linear-gradient(105deg, #0077ff, #00c3ff);
+            border: none;
+            padding: 0.9rem 2.5rem;
+            border-radius: 40px;
+            font-weight: 700;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 12px #0cf;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.8rem;
+            color: #4c6f9a;
+        }
+
+        @media (max-width: 800px) {
+            .container {
+                padding: 1rem;
+            }
+            .section {
+                padding: 3rem 0;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="bg-cosmic"></div>
+<div class="stars"></div>
+
+<div class="container">
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="badge">⚡ HARDWARE‑IMMUTABLE SECURITY</div>
+            <h1>SENTINEL CORE</h1>
+            <div class="hero-sub">Hardware that trusts no one.</div>
+            <div class="hero-sub" style="font-size: 1rem; color:#9ab3e0;">
+                Active tamper defense • Self‑destruct on intrusion • Uncloneable identity
+            </div>
+            <div class="tagline">
+                <i class="fas fa-shield-alt" style="color:#0cf;"></i> For 5G/6G base stations, edge servers, military electronics, and critical infrastructure.
+            </div>
+        </div>
+    </div>
+
+    <!-- Key Technologies -->
+    <div class="section">
+        <div class="section-title">⚡ Key Technologies</div>
+        <div class="grid-2">
+            <div class="tech-card">
+                <div class="card-icon"><i class="fas fa-microchip"></i></div>
+                <h3>Physical Unclonable Function (PUF)</h3>
+                <p>Each chip has a unique identity based on silicon manufacturing variations. Keys are never stored — only derived on‑demand. Impossible to clone or extract.</p>
+            </div>
+            <div class="tech-card">
+                <div class="card-icon"><i class="fas fa-thermometer-half"></i></div>
+                <h3>Thermal Guard & Logic Migration</h3>
+                <p>Detects localized overheating (laser probing) and moves critical computations to protected die areas in &lt;1µs. Neutralizes side‑channel attacks.</p>
+            </div>
+            <div class="tech-card">
+                <div class="card-icon"><i class="fas fa-eye"></i></div>
+                <h3>Oracle Shield</h3>
+                <p>Hardware‑level data verification before data reaches the OS. Blocks zero‑day exploits and malicious firmware injection at the gate level.</p>
+            </div>
+            <div class="tech-card">
+                <div class="card-icon"><i class="fas fa-shield-virus"></i></div>
+                <h3>Active Mesh & Scorched Earth</h3>
+                <p>A conductive mesh (<10µm traces) wraps the chip. Any physical intrusion triggers irreversible key erasure and eFuse blow. The chip becomes a permanent brick.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison -->
+    <div class="section">
+        <div class="section-title">🛡️ Traditional Security vs. Sentinel Core</div>
+        <table class="comp-table">
+            <thead>
+                <tr><th>Threat</th><th>Traditional (TPM/HSM)</th><th>Sentinel Core</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Physical Access</td><td>Vulnerable to case opening</td><td class="check">Active mesh detects any breach → self‑destruct</td></tr>
+                <tr><td>Cryogenic Attack</td><td>Memory can be frozen & read</td><td class="check">Temperature sensors trigger self‑destruct</td></tr>
+                <tr><td>Laser Probing</td><td>Bits can be extracted</td><td class="check">Logic migration hides active gates</td></tr>
+                <tr><td>Cloning / Reverse Engineering</td><td>Possible with advanced tools</td><td class="check">eFuses blow → logic wiped forever</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Products & Licensing -->
+    <div class="section">
+        <div class="section-title">📦 Products & Licensing</div>
+        <div class="section-desc">Modular licensing for FPGA bitstreams or ASIC IP blocks. All licenses include full documentation, integration support, and 10 years of security updates.</div>
+        <div class="product-grid">
+            <div class="product-card">
+                <i class="fas fa-fingerprint" style="font-size: 2rem; color:#0cf;"></i>
+                <h3 style="margin: 0.8rem 0;">PUF Bitstream</h3>
+                <p>FPGA configuration for uncloneable device identity.</p>
+                <div class="product-price">$500,000</div>
+                <a href="#" class="btn-outline">Learn more</a>
+            </div>
+            <div class="product-card">
+                <i class="fas fa-temperature-low" style="font-size: 2rem; color:#0cf;"></i>
+                <h3 style="margin: 0.8rem 0;">Thermal Guard</h3>
+                <p>Adaptive computation migration + microsecond thermal monitoring.</p>
+                <div class="product-price">$1,500,000</div>
+                <a href="#" class="btn-outline">Learn more</a>
+            </div>
+            <div class="product-card">
+                <i class="fas fa-shield-hooded" style="font-size: 2rem; color:#0cf;"></i>
+                <h3 style="margin: 0.8rem 0;">Oracle Shield</h3>
+                <p>Hardware‑level data verification (Zero‑Trust Root).</p>
+                <div class="product-price">$2,500,000</div>
+                <a href="#" class="btn-outline">Learn more</a>
+            </div>
+            <div class="product-card">
+                <i class="fas fa-crown" style="font-size: 2rem; color:#0cf;"></i>
+                <h3 style="margin: 0.8rem 0;">Sentinel Core Complete</h3>
+                <p>Full hardware security suite — PUF + Thermal Guard + Oracle Shield + Tamper Mesh.</p>
+                <div class="product-price">$10,000,000+</div>
+                <a href="#" class="btn-outline">Inquire</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Target Markets -->
+    <div class="section">
+        <div class="section-title">🎯 Target Markets</div>
+        <div class="grid-2">
+            <div class="tech-card"><i class="fas fa-tower-cell"></i><h3>5G/6G Infrastructure</h3><p>Protection of remote base stations from physical hijacking and firmware replacement.</p></div>
+            <div class="tech-card"><i class="fas fa-server"></i><h3>Edge Computing</h3><p>Security for unattended servers in hostile or public environments.</p></div>
+            <div class="tech-card"><i class="fas fa-bolt"></i><h3>Industrial Control (SCADA)</h3><p>Hardening power grids, pipelines, and offshore platforms.</p></div>
+            <div class="tech-card"><i class="fas fa-space-shuttle"></i><h3>Defense & Aerospace</h3><p>Captured hardware remains a "black box" to the enemy.</p></div>
+            <div class="tech-card"><i class="fas fa-chart-line"></i><h3>FinTech & Data Centers</h3><p>Hardware-level Root of Trust for high-value transactions.</p></div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+        <h2 style="font-size: 1.8rem;">Secure your hardware before it’s too late</h2>
+        <p style="margin: 1rem 0; color:#bbddff;">Licensing inquiries & technical briefings under NDA.</p>
+        <a href="mailto:karam1975l@proton.me" class="btn-primary"><i class="fas fa-envelope"></i> Contact for licensing</a>
+        <p style="margin-top: 1.5rem; font-size: 0.8rem; color:#7f9fcf;">PGP key available on request for secure communication.</p>
+    </div>
+
+    <footer>
+        © 2026 Sentinel Core. Secure. Immutable. Final.<br>
+        <span style="font-size: 0.7rem;">Hardware‑level tamper protection. Active self‑destruct. Uncloneable identity.</span>
+    </footer>
+</div>
+</body>
+</html>
