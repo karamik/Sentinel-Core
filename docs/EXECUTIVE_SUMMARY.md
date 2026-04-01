@@ -39,5 +39,5 @@ We offer a modular, non-exclusive licensing structure designed for rapid integra
 
 ---
 
-**Contact for Technical Audit:** [sentinel@proton.me](mailto:sentinel@proton.me)  
+**Contact for Technical Audit:** [karam1975l@proton.me](mailto:sentinel@proton.me)  
 *Proof of Funds (PoF) required for access to full Technical Whitepaper.*
