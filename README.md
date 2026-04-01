@@ -79,7 +79,7 @@ We offer modular licensing for seamless integration into existing FPGA/ASIC work
 
 We offer non‑exclusive, value‑based licensing to hardware manufacturers and system integrators.
 
-**Contact:** [sentinel@proton.me](mailto:sentinel@proton.me)  
+**Contact:** [karam1975l@proton.me](mailto:sentinel@proton.me)  
 **PGP Key:** Available on request for secure communication.
 
 ---
