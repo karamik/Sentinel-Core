@@ -1,0 +1,48 @@
+# Proprietary License – Sentinel Core
+
+Copyright © 2026 International Group of Developers (IGD). All rights reserved.
+
+This software, firmware, bitstreams, RTL source code, documentation, and associated materials (collectively, the “Work”) are the exclusive property of the International Group of Developers (IGD).
+
+## 1. Grant of Rights
+
+No license, whether express or implied, is granted to use, copy, modify, distribute, sublicense, or create derivative works based on the Work, in whole or in part, without the prior written consent of IGD.
+
+You may view the Work for informational purposes only.
+
+## 2. Permitted Use (Evaluation Only)
+
+A limited, non‑exclusive, non‑transferable right is granted to verified entities who have:
+
+- Signed a Non‑Disclosure Agreement (NDA) with IGD
+- Provided Proof of Funds (PoF) for the selected licensing tier
+
+Such entities may, for evaluation purposes only:
+- Load node‑locked evaluation bitstreams onto their own hardware
+- Measure performance parameters as described in the Evaluation Guide
+- Verify Logic Migration latency and Tamper Response time
+
+## 3. Prohibited Actions
+
+You may not:
+- Use the Work for any commercial purpose without a valid license
+- Reproduce, redistribute, or publish the Work, in any form or by any means
+- Decompile, reverse engineer, disassemble, or otherwise attempt to derive source code
+- Remove or alter any proprietary notices, marks, or legends
+- Share evaluation bitstreams with any third party
+
+## 4. Ownership
+
+All intellectual property rights in and to the Work, including but not limited to patents, trade secrets, copyrights, and mask works, are and shall remain the sole property of IGD. The Work is protected by international copyright laws and treaty provisions.
+
+## 5. No Warranty
+
+THE WORK IS PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL IGD BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM, OUT OF, OR IN CONNECTION WITH THE WORK.
+
+## 6. Contact
+
+For licensing inquiries: **karam1975l@proton.me**
+
+---
+
+© 2026 International Group of Developers. All rights reserved.
